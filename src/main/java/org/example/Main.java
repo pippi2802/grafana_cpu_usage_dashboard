@@ -3,6 +3,7 @@ package org.example;
 import com.grafana.foundation.cog.variants.Registry;
 import com.grafana.foundation.dashboard.Dashboard;
 import com.grafana.relocated.jackson.core.JsonProcessingException;
+import config.ConfigLoader;
 import customdashboard.CpuDashboard;
 import customquery.CpuQuery;
 
@@ -15,8 +16,21 @@ public class Main {
         // Register custom query
         Registry.registerDataquery("cpu-query", CpuQuery.class);
 
-        // Build the dashboard
-        Dashboard dashboard = CpuDashboard.buildCpuDashboard();
+        // Read datasource UID from config
+        String prometheusUid = ConfigLoader.getPrometheusUid();
+
+        // Build the dashboard with parameters
+        Dashboard dashboard = CpuDashboard.buildCpuDashboard(
+                "CPU Usage Dashboard",          // dashboard title
+                "cpu-usage-java",               // dashboard uid
+                prometheusUid,                  // datasource uid
+                "prometheus",                   // datasource name
+                "cpu_usage",                    // query
+                "CPU Usage %",                  // panel title
+                "now-30m",                      // time from
+                "now",                          // time to
+                "1m"                            // refresh interval
+        );
 
         // Convert dashboard to JSON
         String json = dashboard.toJSON();
@@ -32,3 +46,4 @@ public class Main {
         }
     }
 }
+

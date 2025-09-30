@@ -2,7 +2,9 @@ package customquery;
 
 import com.grafana.foundation.cog.Builder;
 import com.grafana.foundation.cog.variants.Dataquery;
-
+/**
+ * Builder for creating {@link CpuQuery} objects.
+ */
 public class CpuQueryBuilder implements Builder<Dataquery> {
     private final CpuQuery internal;
 
@@ -21,8 +23,8 @@ public class CpuQueryBuilder implements Builder<Dataquery> {
         return this;
     }
 
-    public CpuQueryBuilder datasource(String uid) {
-        this.internal.datasource = new DatasourceRef("prometheus", uid);
+    public CpuQueryBuilder datasource(String datasource_name, String uid) {
+        this.internal.datasource = new DatasourceRef(datasource_name, uid);
         return this;
     }
 
