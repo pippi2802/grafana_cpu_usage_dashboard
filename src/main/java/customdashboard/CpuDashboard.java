@@ -35,6 +35,7 @@ public class CpuDashboard {
             String datasourceUid,
             String datasourceName,
             String query,
+            String refId,
             String panelTitle,
             String timeFrom,
             String timeTo,
@@ -54,6 +55,7 @@ public class CpuDashboard {
                         .highlightMax()
                         .withTarget(
                                 new CpuQueryBuilder(query)
+                                        .refId(refId)
                                         .datasource(datasourceName, datasourceUid)
                         )
                 )

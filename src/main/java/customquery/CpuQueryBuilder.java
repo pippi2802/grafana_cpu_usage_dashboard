@@ -10,7 +10,7 @@ public class CpuQueryBuilder implements Builder<Dataquery> {
 
     public CpuQueryBuilder(String query) {
         this.internal = new CpuQuery();
-        this.internal.query = query;
+        this.internal.expr = query;
     }
 
     public CpuQueryBuilder refId(String refId) {

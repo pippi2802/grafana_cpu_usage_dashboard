@@ -26,9 +26,9 @@
   }, {
     "type" : "timeseries",
     "targets" : [ {
-      "refId" : null,
+      "refId" : "A",
       "hide" : null,
-      "query" : "cpu_usage",
+      "expr" : "cpu_usage",
       "datasource" : {
         "type" : "prometheus",
         "uid" : "DS_PROMETHEUS_UID"

@@ -15,8 +15,8 @@ public class CpuQuery implements Dataquery {
     public Boolean hide;
 
     /** Query string  */
-    @JsonProperty("query")
-    public String query;
+    @JsonProperty("expr")
+    public String expr;
 
     /** Datasource reference  */
     @JsonProperty("datasource")

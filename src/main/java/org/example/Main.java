@@ -26,6 +26,7 @@ public class Main {
                 prometheusUid,                  // datasource uid
                 "prometheus",                   // datasource name
                 "cpu_usage",                    // query
+                "A",                            // refId for target
                 "CPU Usage %",                  // panel title
                 "now-30m",                      // time from
                 "now",                          // time to
